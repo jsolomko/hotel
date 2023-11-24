@@ -1,18 +1,18 @@
 package com.example.hotelapplication.app.model.hotel
 
 data class Hotel(
-    val id: Int,
-    val name: String,
-    val address: String,
-    val minimalPrice: Int,
-    val priceForIt: String,
-    val rating: Int,
-    val ratingName: String,
-    val imageUrls: List<String>,
-    val aboutTheHotel: AboutTheHotel
+    val id: Int?,
+    val name: String?,
+    val address: String?,
+    val minimalPrice: Int?,
+    val priceForIt: String?,
+    val rating: Int?,
+    val ratingName: String?,
+    val imageUrls: List<String>?,
+    val aboutTheHotel: AboutTheHotel?
 )
 
 data class AboutTheHotel(
-    val description: String,
-    val peculiarities: List<String>
+    val description: String?,
+    val peculiarities: List<String>?
 )

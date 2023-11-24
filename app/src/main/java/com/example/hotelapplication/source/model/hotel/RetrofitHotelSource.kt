@@ -1,10 +1,9 @@
-package com.example.hotelapplication.source.model
+package com.example.hotelapplication.source.model.hotel
 
 import com.example.hotelapplication.app.model.hotel.Hotel
 import com.example.hotelapplication.app.model.hotel.HotelSource
 import com.example.hotelapplication.source.base.BaseRetrofitSource
 import com.example.hotelapplication.source.base.RetrofitConfig
-import com.example.hotelapplication.source.model.hotel.HotelApi
 
 class RetrofitHotelSource(config: RetrofitConfig) : HotelSource, BaseRetrofitSource(config) {
 

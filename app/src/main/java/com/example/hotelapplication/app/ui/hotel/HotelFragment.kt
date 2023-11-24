@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.hotelapplication.R
 import com.example.hotelapplication.app.utils.ViewModelFactory
 import com.example.hotelapplication.databinding.FragmentHotelBinding
@@ -23,6 +24,10 @@ class HotelFragment : Fragment(R.layout.fragment_hotel) {
         viewModel.getHotel()
         viewModel.hotel.observe(viewLifecycleOwner) {
             println(it)
+        }
+
+        binding.textView.setOnClickListener {
+            findNavController().navigate(R.id.roomFragment)
         }
 
         return binding.root
