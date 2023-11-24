@@ -138,10 +138,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Опция 3" />
-
                 <!-- TextView 4 -->
             </LinearLayout>
-
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </RelativeLayout>
