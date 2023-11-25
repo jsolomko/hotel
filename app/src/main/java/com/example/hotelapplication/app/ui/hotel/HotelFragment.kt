@@ -22,32 +22,35 @@ class HotelFragment : Fragment(R.layout.fragment_hotel) {
     ): View? {
         binding = FragmentHotelBinding.inflate(inflater, container, false)
 
-        val images = listOf(
-            R.drawable.ic_launcher_foreground,
-            R.drawable.ic_launcher_foreground,
-            R.drawable.ic_launcher_foreground
-        )
 
         val viewPager: ViewPager2 = binding.viewpager
-        viewPager.adapter = SliderAdapter(images)
-
         viewModel.getHotel()
 
         viewModel.hotel.observe(viewLifecycleOwner) { hotel ->
+
             with(binding) {
+                val images = hotel.image_urls
+                println("images ${images?.get(0)}")
+
+                viewPager.adapter = SliderAdapter(images!!, requireActivity())
+
                 tvHotelName.text = hotel.name
                 tvHotelAddress.text = hotel.adress
-
+                tvRating.text = hotel.rating.toString()
+                tvRatingName.text = hotel.rating_name
+                tvMinimalPrice.text = hotel.minimal_price.toString()
+                tvPriceForIt.text = hotel.price_for_it
                 tvPeculiarities1.text = hotel.about_the_hotel?.peculiarities?.get(0) ?: "Опция 1"
                 tvPeculiarities2.text = hotel.about_the_hotel?.peculiarities?.get(1) ?: "Опция 2"
                 tvPeculiarities3.text = hotel.about_the_hotel?.peculiarities?.get(2) ?: "Опция 3"
                 tvPeculiarities4.text = hotel.about_the_hotel?.peculiarities?.get(3) ?: "Опция 4"
 
-
-
                 tvHotelDescription.text = hotel.about_the_hotel?.description
 
             }
+        }
+        binding.btnToRooms.setOnClickListener {
+            findNavController().navigate(R.id.roomFragment)
         }
 
 

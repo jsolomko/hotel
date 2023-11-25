@@ -27,17 +27,6 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="16dp">
-
-                    <TextView
-                        android:id="@+id/title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentTop="true"
-                        android:layout_centerHorizontal="true"
-                        android:layout_gravity="center"
-                        android:text="Отель"
-                        android:textSize="24sp" />
-
                     <!-- Карусель из фотографий -->
                     <androidx.viewpager2.widget.ViewPager2
                         android:id="@+id/viewpager"
@@ -45,47 +34,54 @@
                         android:layout_height="match_parent" />
 
                     <!-- Оценка и текст -->
-                    <LinearLayout
+                    <androidx.cardview.widget.CardView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:background="@color/yellow_20"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:paddingStart="10dp"
-                        android:paddingTop="5dp"
-                        android:paddingEnd="10dp"
-                        android:paddingBottom="5dp">
+                        android:layout_marginTop="10dp"
+                        android:elevation="10dp"
+                        app:cardCornerRadius="8dp">
 
-                        <ImageView
+                        <LinearLayout
+
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/ic_baseline_star_24" />
+                            android:background="@color/yellow_20"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingStart="15dp"
+                            android:paddingTop="5dp"
+                            android:paddingEnd="10dp"
+                            android:paddingBottom="5dp">
 
-                        <TextView
-                            android:id="@+id/tv_rating"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:text="5"
-                            android:textColor="@color/yellow"
-                            android:textSize="16sp" />
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_baseline_star_24" />
 
-                        <TextView
-                            android:id="@+id/tv_rating_name"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:text="Превосходно"
-                            android:textColor="@color/yellow"
-                            android:textSize="16sp" />
+                            <TextView
+                                android:id="@+id/tv_rating"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:text="5"
+                                android:textColor="@color/yellow"
+                                android:textSize="16sp" />
 
-                    </LinearLayout>
+                            <TextView
+                                android:id="@+id/tv_rating_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:text="Превосходно"
+                                android:textColor="@color/yellow"
+                                android:textSize="16sp" />
 
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
                     <!-- Название отеля -->
                     <TextView
-                        style="@style/Titles"
                         android:id="@+id/tv_hotel_name"
+                        style="@style/Titles"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
@@ -97,15 +93,41 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="Адрес отеля" />
+                        android:text="Адрес отеля"
+                        android:textColor="@color/link" />
 
                     <!-- Цена отеля -->
-                    <TextView
-                        android:id="@+id/tv_minimal_price"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="@string/price_for_tour" />
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="5dp"
+                            android:text="@string/fromPrice"
+                            android:textColor="@color/black"
+                            android:textSize="30sp" />
+
+                        <TextView
+                            android:id="@+id/tv_minimal_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:textColor="@color/black"
+                            android:textSize="30sp" />
+
+                        <TextView
+                            android:id="@+id/tv_price_for_it"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="8dp"
+                            android:textAllCaps="false" />
+                    </LinearLayout>
+
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -137,6 +159,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:orientation="vertical">
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -185,7 +208,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="Описание отеля" />
+                        android:text="Описание отеля"
+                        android:textColor="@color/black" />
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
@@ -220,6 +244,7 @@
                                     android:id="@+id/tv_comfort"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
                                     android:text="Удобство"
                                     android:textColor="@color/black"
                                     android:textSize="16sp"
@@ -231,6 +256,7 @@
                                     android:id="@+id/tvFirstName"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
                                     android:text="Самое необычное"
                                     android:textSize="16sp"
                                     app:layout_constraintStart_toEndOf="@+id/image_comfort"
@@ -267,6 +293,7 @@
                                     android:id="@+id/tv_include"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
                                     android:text="Удобство"
                                     android:textColor="@color/black"
                                     android:textSize="16sp"
@@ -277,6 +304,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
                                     android:text="Самое необычное"
                                     android:textSize="16sp"
                                     app:layout_constraintStart_toEndOf="@+id/image_include"
@@ -312,6 +340,7 @@
                                     android:id="@+id/tv_not_include"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
                                     android:text="Удобство"
                                     android:textColor="@color/black"
                                     android:textSize="16sp"
@@ -322,6 +351,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
                                     android:text="Самое необычное"
                                     android:textSize="16sp"
                                     app:layout_constraintStart_toEndOf="@+id/image_not_include"
@@ -342,12 +372,15 @@
 
                     </androidx.cardview.widget.CardView>
 
-                    <Button
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_to_rooms"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="К выбору номера"
+                        android:background="@drawable/button_navigation"
+                        android:text="@string/buttom_to_take_room"
                         android:textAllCaps="false"
-                        android:textSize="20sp" />
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
         </RelativeLayout>
