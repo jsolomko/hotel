@@ -6,24 +6,24 @@ import com.example.hotelapplication.app.model.hotel.Hotel
 data class HotelDTO(
     val id: Int?,
     val name: String?,
-    val address: String?,
-    val minimalPrice: Int?,
-    val priceForIt: String?,
+    val adress: String?,
+    val minimal_price: Int?,
+    val price_for_it: String?,
     val rating: Int?,
-    val ratingName: String?,
-    val imageUrls: List<String>?,
-    val aboutTheHotel: AboutTheHotel?
+    val rating_name: String?,
+    val image_urls: List<String>?,
+    val about_the_hotel: AboutTheHotel?
 ) {
     fun toHotel() = Hotel(
         id = id,
         name = name,
-        address = address,
-        minimalPrice = minimalPrice,
-        priceForIt = priceForIt,
+        adress = adress,
+        minimal_price = minimal_price,
+        price_for_it = price_for_it,
         rating = rating,
-        ratingName = ratingName,
-        imageUrls = imageUrls,
-        aboutTheHotel = aboutTheHotel
+        rating_name = rating_name,
+        image_urls = image_urls,
+        about_the_hotel = about_the_hotel
     )
 }
 

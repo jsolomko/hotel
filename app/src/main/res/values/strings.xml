@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Hotel Application</string>
+    <string name="price_for_tour">от %s Р за тур перелетом</string>
 </resources>
