@@ -443,10 +443,12 @@
                                 <com.google.android.material.textfield.TextInputLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+
                                     android:hint="Имя">
 
                                     <com.google.android.material.textfield.TextInputEditText
                                         style="@style/Input"
+                                        android:id="@+id/tourist_name"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content" />
 
@@ -463,10 +465,12 @@
                                 <com.google.android.material.textfield.TextInputLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:hint="Фамилия">
+                                    android:hint="Фамилия"
+                                  >
 
                                     <com.google.android.material.textfield.TextInputEditText
                                         style="@style/Input"
+                                        android:id="@+id/tourist_sername"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content" />
 
