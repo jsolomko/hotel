@@ -203,8 +203,8 @@
                                 android:layout_marginStart="0dp"
                                 android:layout_marginEnd="0dp"
                                 android:layout_weight="1"
-                                android:text="Дата 2"
                                 android:gravity="center"
+                                android:text="Дата 2"
                                 android:textColor="@color/black" />
                         </LinearLayout>
                     </LinearLayout>
@@ -447,8 +447,8 @@
                                     android:hint="Имя">
 
                                     <com.google.android.material.textfield.TextInputEditText
-                                        style="@style/Input"
                                         android:id="@+id/tourist_name"
+                                        style="@style/Input"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content" />
 
@@ -465,12 +465,11 @@
                                 <com.google.android.material.textfield.TextInputLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:hint="Фамилия"
-                                  >
+                                    android:hint="Фамилия">
 
                                     <com.google.android.material.textfield.TextInputEditText
-                                        style="@style/Input"
                                         android:id="@+id/tourist_sername"
+                                        style="@style/Input"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content" />
 
