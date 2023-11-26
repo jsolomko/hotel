@@ -55,7 +55,9 @@ class BookingFragment : Fragment(R.layout.fragment_booking) {
             addNewTouristCardView()
         }
 
-
+        binding.btnToPay.setOnClickListener {
+            findNavController().navigate(R.id.paidFragment)
+        }
         return binding.root
     }
 

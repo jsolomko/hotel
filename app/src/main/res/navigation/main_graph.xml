@@ -23,5 +23,19 @@
     <fragment
         android:id="@+id/bookingFragment"
         android:name="com.example.hotelapplication.app.ui.booking.BookingFragment"
-        android:label="Бронирование" />
+        android:label="Бронирование" >
+        <action
+            android:id="@+id/action_bookingFragment_to_paidFragment"
+            app:destination="@id/paidFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/paidFragment"
+        android:name="com.example.hotelapplication.app.ui.paid.PaidFragment"
+        android:label="Заказ оплачен" >
+        <action
+            android:id="@+id/action_paidFragment_to_hotelFragment"
+            app:destination="@id/hotelFragment"
+            app:popUpTo="@id/bookingFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
 </navigation>

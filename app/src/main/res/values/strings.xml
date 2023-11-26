@@ -6,4 +6,6 @@
     <string name="more_info_about_room">Подробнее о номере</string>
     <string name="info_about_customer">Информация о покупателе</string>
     <string name="add_new_tourist">Добавить туриста</string>
+    <string name="order_in_progress">Ваш заказ принят в работу</string>
+    <string name="confirmation_order">Подтверждение заказа №104893 может занять некоторое время (от 1 часа до суток). Как только мы получим ответ от туроператора, вам на почту придет уведомление.</string>
 </resources>

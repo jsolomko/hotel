@@ -3,11 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior">
 
     <ScrollView
+
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -160,27 +164,49 @@
                         <!-- TextView 1 -->
                         <TextView
                             style="@style/PeculiaritiesBooking"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Даты"
                             android:textColor="@color/grey_100" />
                         <!-- TextView 2 -->
-                        <TextView
-                            android:id="@+id/tv_tour_date_start"
-                            style="@style/PeculiaritiesBooking"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Дата 1" />
+                            android:orientation="horizontal">
 
-                        <TextView
-                            android:id="@+id/tv_tour_date_stop"
-                            style="@style/PeculiaritiesBooking"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Дата 2" />
+                            <!-- TextView 2 -->
+                            <TextView
+                                android:id="@+id/tv_tour_date_start"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="Дата 1"
+                                android:textColor="@color/black" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:gravity="center"
+                                android:text="-"
+                                android:textColor="@color/black" />
+
+                            <TextView
+                                android:id="@+id/tv_tour_date_stop"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:layout_marginStart="0dp"
+                                android:layout_marginEnd="0dp"
+                                android:layout_weight="1"
+                                android:text="Дата 2"
+                                android:gravity="center"
+                                android:textColor="@color/black" />
+                        </LinearLayout>
                     </LinearLayout>
 
                     <LinearLayout
@@ -694,15 +720,15 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_to_rooms"
+                android:id="@+id/btn_to_pay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/button_navigation"
                 android:text="Оплтатить"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textSize="16sp"
-                android:layout_marginTop="10dp"/>
+                android:textSize="16sp" />
 
         </LinearLayout>
     </ScrollView>
