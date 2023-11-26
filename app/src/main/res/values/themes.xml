@@ -11,6 +11,11 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Action bar  -->
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
+        <!-- Support library compatibility -->
+        <item name="actionBarStyle">@style/MyActionBar</item>
+
         <!-- Customize your theme here. -->
         <item name="android:textSize">16sp</item>
     </style>
@@ -52,5 +57,19 @@
 
     <style name="Input">
         <item name="android:background">@color/grey_10</item>
+    </style>
+
+
+  <style name="MyActionBar" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">?attr/colorPrimaryVariant</item>
+        <item name="background">?attr/colorPrimaryVariant</item>
+      <item name="android:titleTextStyle">@style/MyTheme.ActionBar.TitleTextStyle</item>
+
+    </style>
+
+    <style name="MyTheme.ActionBar.TitleTextStyle" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="android:textColor">@color/black</item>
+        <item name="color">@color/black</item>
+        <item name="textFillColor">@color/black</item>
     </style>
 </resources>
