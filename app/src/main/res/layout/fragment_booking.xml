@@ -81,7 +81,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="Название отеля" />
+                        android:text="Название отеля"
+                        android:textFontWeight="500" />
                     <!-- Адрес отеля -->
                     <TextView
                         android:id="@+id/tv_hotel_address"
@@ -113,15 +114,16 @@
                         android:orientation="horizontal">
                         <!-- TextView 1 -->
                         <TextView
-                            style="@style/Peculiarities"
+                            style="@style/PeculiaritiesBooking"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Вылет из" />
+                            android:text="Вылет из"
+                            android:textColor="@color/grey_100" />
                         <!-- TextView 2 -->
                         <TextView
                             android:id="@+id/tv_departure"
-                            style="@style/Peculiarities"
+                            style="@style/PeculiaritiesBooking"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -134,15 +136,17 @@
                         android:orientation="horizontal">
                         <!-- TextView 1 -->
                         <TextView
-                            style="@style/Peculiarities"
+
+                            style="@style/PeculiaritiesBooking"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Страна, город" />
+                            android:text="Страна, город"
+                            android:textColor="@color/grey_100" />
                         <!-- TextView 2 -->
                         <TextView
                             android:id="@+id/tv_arrival_country"
-                            style="@style/Peculiarities"
+                            style="@style/PeculiaritiesBooking"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -155,24 +159,25 @@
                         android:orientation="horizontal">
                         <!-- TextView 1 -->
                         <TextView
-                            style="@style/Peculiarities"
-                            android:layout_width="0dp"
+                            style="@style/PeculiaritiesBooking"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Даты" />
+                            android:text="Даты"
+                            android:textColor="@color/grey_100" />
                         <!-- TextView 2 -->
                         <TextView
                             android:id="@+id/tv_tour_date_start"
-                            style="@style/Peculiarities"
-                            android:layout_width="0dp"
+                            style="@style/PeculiaritiesBooking"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Дата 1" />
 
                         <TextView
                             android:id="@+id/tv_tour_date_stop"
-                            style="@style/Peculiarities"
-                            android:layout_width="0dp"
+                            style="@style/PeculiaritiesBooking"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Дата 2" />
@@ -184,15 +189,16 @@
                         android:orientation="horizontal">
                         <!-- TextView 1 -->
                         <TextView
-                            style="@style/Peculiarities"
+                            style="@style/PeculiaritiesBooking"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Кол-во ночей" />
+                            android:text="Кол-во ночей"
+                            android:textColor="@color/grey_100" />
                         <!-- TextView 2 -->
                         <TextView
                             android:id="@+id/tv_number_of_nights"
-                            style="@style/Peculiarities"
+                            style="@style/PeculiaritiesBooking"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -205,15 +211,16 @@
                         android:orientation="horizontal">
                         <!-- TextView 1 -->
                         <TextView
-                            style="@style/Peculiarities"
+                            style="@style/PeculiaritiesBooking"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Отеть" />
+                            android:text="Отель"
+                            android:textColor="@color/grey_100" />
                         <!-- TextView 2 -->
                         <TextView
                             android:id="@+id/tv_hotel_name_room"
-                            style="@style/Peculiarities"
+                            style="@style/PeculiaritiesBooking"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -226,15 +233,16 @@
                         android:orientation="horizontal">
                         <!-- TextView 1 -->
                         <TextView
-                            style="@style/Peculiarities"
+                            style="@style/PeculiaritiesBooking"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Номер" />
+                            android:text="Номер"
+                            android:textColor="@color/grey_100" />
                         <!-- TextView 2 -->
                         <TextView
                             android:id="@+id/tv_room"
-                            style="@style/Peculiarities"
+                            style="@style/PeculiaritiesBooking"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -247,15 +255,16 @@
                         android:orientation="horizontal">
                         <!-- TextView 1 -->
                         <TextView
-                            style="@style/Peculiarities"
+                            style="@style/PeculiaritiesBooking"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Питание" />
+                            android:text="Питание"
+                            android:textColor="@color/grey_100" />
                         <!-- TextView 2 -->
                         <TextView
                             android:id="@+id/tv_nutrition"
-                            style="@style/Peculiarities"
+                            style="@style/PeculiaritiesBooking"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -281,6 +290,14 @@
                     android:orientation="vertical"
                     android:padding="16dp">
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/info_about_customer"
+                        android:textColor="@color/black"
+                        android:textFontWeight="500"
+                        android:textSize="22sp" />
+
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -288,20 +305,20 @@
                         app:cardCornerRadius="12dp"
                         app:cardElevation="4dp">
 
-                        <TextView
-                            android:id="@+id/numberTextInput"
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/textInputLayout"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Номер телефона"
-                            android:textSize="10sp"
-                            />
+                            android:hint="Номер телефона">
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/number_EditText"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:imeOptions="actionNext"
-                            android:lines="1" />
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/textInputEditText"
+                                style="@style/Input"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="phone" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
@@ -311,80 +328,264 @@
                         app:cardCornerRadius="12dp"
                         app:cardElevation="4dp">
 
-                        <TextView
-                            android:id="@+id/mailTextInput"
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/textInputLayout2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Почта"
-                            android:textSize="10sp" />
+                            android:hint="Почта">
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/mail_EditText"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:imeOptions="actionNext"
-                            android:lines="1" />
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/textInputEditText2"
+                                style="@style/Input"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="textEmailAddress" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
                     </androidx.cardview.widget.CardView>
 
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
+            <!-- О туристах -->
+            <LinearLayout
+                android:id="@+id/touristListLayoutMain"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="4dp">
+                android:orientation="vertical">
 
-                <LinearLayout
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="4dp">
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tvTouristCounterName"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Первый турист"
+                                android:textColor="@color/black"
+                                android:textFontWeight="500"
+                                android:textSize="22sp"
+                                android:textStyle="bold" />
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1">
+
+                                <ImageView
+                                    android:id="@+id/imageViewExpand"
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:layout_gravity="end"
+                                    android:background="@color/link_100"
+                                    android:src="@drawable/ic_baseline_keyboard_arrow_up_24" />
+                            </androidx.cardview.widget.CardView>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/touristListLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                app:cardCornerRadius="12dp"
+                                app:cardElevation="4dp">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="Имя">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        style="@style/Input"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                app:cardCornerRadius="12dp"
+                                app:cardElevation="4dp">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="Фамилия">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        style="@style/Input"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                app:cardCornerRadius="12dp"
+                                app:cardElevation="4dp">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="Дата рождения">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        style="@style/Input"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                app:cardCornerRadius="12dp"
+                                app:cardElevation="4dp">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="Гражданство">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        style="@style/Input"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                app:cardCornerRadius="12dp"
+                                app:cardElevation="4dp">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="Номер загранпаспорта">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        style="@style/Input"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                app:cardCornerRadius="12dp"
+                                app:cardElevation="4dp">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="Срокие дейстия загранпаспорта">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        style="@style/Input"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+                            </androidx.cardview.widget.CardView>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+            <!--Добавить туриста -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="4dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="vertical"
+                        android:padding="16dp">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Первый турист"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-
-                        <Button
-                            android:layout_width="40dp"
-                            android:layout_height="wrap_content"
-                            android:onClick="addTouristCardView"
-                            android:text="+" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/touristListLayout"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <!-- Поля текстового ввода для первого туриста -->
-                        <EditText
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Имя туриста" />
+                            android:orientation="horizontal">
 
-                        <EditText
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Фамилия туриста" />
-                        <!-- Добавьте другие необходимые поля ввода здесь -->
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/add_new_tourist"
+                                android:textColor="@color/black"
+                                android:textFontWeight="500"
+                                android:textSize="22sp"
+                                android:textStyle="bold" />
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1">
+
+                                <ImageView
+                                    android:id="@+id/imageView_add_new_tourist"
+                                    android:layout_width="32dp"
+                                    android:layout_height="32dp"
+                                    android:layout_gravity="end"
+                                    android:background="@color/link"
+                                    android:src="@drawable/ic_baseline_add_24" />
+                            </androidx.cardview.widget.CardView>
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
+                </androidx.cardview.widget.CardView>
 
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+            </LinearLayout>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_view_book_info"
@@ -405,15 +606,16 @@
                         android:orientation="horizontal">
                         <!-- TextView 1 -->
                         <TextView
-                            style="@style/Peculiarities"
+                            style="@style/PeculiaritiesBooking"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Тур" />
+                            android:text="Тур"
+                            android:textColor="@color/grey_100" />
                         <!-- TextView 2 -->
                         <TextView
                             android:id="@+id/tv_tour"
-                            style="@style/Peculiarities"
+                            style="@style/PeculiaritiesBooking"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -426,15 +628,16 @@
                         android:orientation="horizontal">
                         <!-- TextView 1 -->
                         <TextView
-                            style="@style/Peculiarities"
+                            style="@style/PeculiaritiesBooking"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Топливный сбор" />
+                            android:text="Топливный сбор"
+                            android:textColor="@color/grey_100" />
                         <!-- TextView 2 -->
                         <TextView
                             android:id="@+id/tv_fuel"
-                            style="@style/Peculiarities"
+                            style="@style/PeculiaritiesBooking"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -447,15 +650,16 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            style="@style/Peculiarities"
+                            style="@style/PeculiaritiesBooking"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Сервисный сбор" />
+                            android:text="Сервисный сбор"
+                            android:textColor="@color/grey_100" />
 
                         <TextView
                             android:id="@+id/tv_service"
-                            style="@style/Peculiarities"
+                            style="@style/PeculiaritiesBooking"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -468,15 +672,16 @@
                         android:orientation="horizontal">
                         <!-- TextView 1 -->
                         <TextView
-                            style="@style/Peculiarities"
+                            style="@style/PeculiaritiesBooking"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="К оплате" />
+                            android:text="К оплате"
+                            android:textColor="@color/grey_100" />
                         <!-- TextView 2 -->
                         <TextView
                             android:id="@+id/tv_to_pay"
-                            style="@style/Peculiarities"
+                            style="@style/PeculiaritiesBooking"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -496,7 +701,8 @@
                 android:text="Оплтатить"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:layout_marginTop="10dp"/>
 
         </LinearLayout>
     </ScrollView>

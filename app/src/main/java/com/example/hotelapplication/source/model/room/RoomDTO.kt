@@ -6,17 +6,17 @@ data class RoomDTO(
     val id: Int?,
     val name: String?,
     val price: Int?,
-    val pricePer: String?,
+    val price_per: String?,
     val peculiarities: List<String>?,
-    val imageUrls: List<String>?
+    val image_urls: List<String>?
 ) {
     fun toRoom() = Room(
         id = id,
         name = name,
         price = price,
-        pricePer = pricePer,
+        price_per = price_per,
         peculiarities = peculiarities,
-        imageUrls = imageUrls
+        image_urls = image_urls
     )
 }
 

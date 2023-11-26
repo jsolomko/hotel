@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
+
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         app:cardCornerRadius="12dp"
         app:cardElevation="4dp">
 
@@ -17,13 +19,14 @@
             android:padding="16dp">
             <!-- Карусель из фотографий -->
             <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/viewpager"
+                android:id="@+id/viewpager_room"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
             <!-- Название отеля -->
             <TextView
                 android:id="@+id/tv_hotel_name"
                 style="@style/Titles"
+                android:textFontWeight="500"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -59,10 +62,9 @@
                 app:cardCornerRadius="8dp">
 
                 <LinearLayout
-
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@color/yellow_20"
+                    android:background="@color/link_100"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:paddingStart="15dp"
@@ -71,13 +73,13 @@
                     android:paddingBottom="5dp">
 
                     <TextView
-                        android:id="@+id/tv_rating_name"
+                        android:id="@+id/tv_more_room"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:text="Подробнее о номере"
-                        android:textColor="@color/black"
-                        android:textSize="16sp" />
+                        android:layout_weight="1"
+                        android:text="@string/more_info_about_room"
+                        android:textColor="@color/link" />
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -91,40 +93,40 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/tv_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="5dp"
-                    android:text="PRICE"
+                    android:text="TextView"
                     android:textColor="@color/black"
-                    android:textSize="30sp" />
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_baseline_currency_ruble_24" />
 
                 <TextView
-                    android:id="@+id/tv_minimal_price"
+                    android:id="@+id/tv_price_per_night"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:textColor="@color/black"
-                    android:textSize="30sp" />
-
-                <TextView
-                    android:id="@+id/tv_price_for_it"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="8dp"
+                    android:text="TextView"
                     android:textAllCaps="false" />
+
             </LinearLayout>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_to_rooms"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/button_navigation"
-                android:text="@string/buttom_to_take_room"
+                android:text="Выбрать номер"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="16sp" />

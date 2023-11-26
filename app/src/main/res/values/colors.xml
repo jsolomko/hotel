@@ -11,5 +11,7 @@
     <color name="yellow_20">#5EFFA800</color>
     <color name="grey_20">#FBFBFC</color>
     <color name="grey_100">#828796</color>
+    <color name="grey_10">#F6F6F9</color>
     <color name="link">#0D72FF</color>
+    <color name="link_100">#1D0D72FF</color>
 </resources>

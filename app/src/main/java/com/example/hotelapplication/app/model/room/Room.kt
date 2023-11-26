@@ -4,7 +4,7 @@ data class Room(
     val id: Int?,
     val name: String?,
     val price: Int?,
-    val pricePer: String?,
+    val price_per: String?,
     val peculiarities: List<String>?,
-    val imageUrls: List<String>?
+    val image_urls: List<String>?
 )

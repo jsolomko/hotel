@@ -4,18 +4,18 @@ import java.util.*
 
 data class Booking(
     val id: Int?,
-    val hotelName: String?,
-    val hotelAddress: String?,
-    val rating: Int?,
-    val ratingName: String?,
+    val hotel_name: String?,
+    val hotel_adress: String?,
+    val horating: Int?,
+    val rating_name: String?,
     val departure: String?,
-    val arrivalCountry: String?,
-    val tourDateStart: String?,
-    val tourDateStop: String?,
-    val numberOfNights: Int?,
+    val arrival_country: String?,
+    val tour_date_start: String?,
+    val tour_date_stop: String?,
+    val number_of_nights: Int?,
     val room: String?,
     val nutrition: String?,
-    val tourPrice: Int?,
-    val fuelCharge: Int?,
-    val serviceCharge: Int?
+    val tour_price: Int?,
+    val fuel_charge: Int?,
+    val service_charge: Int?
 )
