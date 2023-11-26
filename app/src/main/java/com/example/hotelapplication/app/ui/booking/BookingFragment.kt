@@ -19,6 +19,7 @@ import com.example.hotelapplication.databinding.ItemTouristBinding
 class BookingFragment : Fragment(R.layout.fragment_booking) {
     lateinit var binding: FragmentBookingBinding
     private val viewModel: BookingViewModel by viewModels { ViewModelFactory() }
+    private var touristCounter: Int = 0
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -62,10 +63,12 @@ class BookingFragment : Fragment(R.layout.fragment_booking) {
     }
 
     private fun addNewTouristCardView() {
+
         val inflater = LayoutInflater.from(requireContext())
         val newCardView = ItemTouristBinding.inflate(inflater, null, false)
+        val tourists = TouristRepository()
 
-        newCardView.tvTouristCounterName.text = "Второй турист"
+        newCardView.tvTouristCounterName.text = tourists.tourists.get(touristCounter).name
         newCardView.imageViewExpand.setOnClickListener {
             if (newCardView.touristListLayout.visibility == View.VISIBLE) {
                 newCardView.touristListLayout.visibility = View.GONE
@@ -75,8 +78,7 @@ class BookingFragment : Fragment(R.layout.fragment_booking) {
                 newCardView.imageViewExpand.setImageResource(R.drawable.ic_baseline_keyboard_arrow_up_24)
             }
         }
-
-
+        touristCounter += 1
         binding.touristListLayoutMain.addView(newCardView.root)
     }
 
