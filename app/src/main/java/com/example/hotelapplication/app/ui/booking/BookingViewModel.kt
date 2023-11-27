@@ -4,7 +4,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavController
-import com.example.hotelapplication.R
+import com.example.core.Event
+import com.example.core.MutableLiveEvent
+import com.example.core.publishEvent
 import com.example.hotelapplication.app.Singletons
 import com.example.hotelapplication.app.model.EmptyFieldException
 import com.example.hotelapplication.app.model.Field
@@ -22,14 +24,25 @@ class BookingViewModel(
     private val _state = MutableLiveData(State())
     val state = _state.share()
 
+    private val _navigateToPaid = MutableLiveData<Event<Unit>>()
+    val navigateToTabsEvent = _navigateToPaid.share()
 
-    fun navigate(controller: NavController) {
+    private var _emptyFieldExceptionEvent = MutableLiveEvent<String>()
+    var emptyFieldExceptionEvent = _emptyFieldExceptionEvent.share()
+
+    fun navigate(name: String, serName: String) {
         try {
-            controller.navigate(R.id.paidFragment)
+            startPay(name, serName)
         } catch (e: EmptyFieldException) {
             processEmptyFieldException(e)
         }
 
+    }
+
+    private fun startPay(name: String, serName: String) {
+        if (name.isBlank()) throw EmptyFieldException(Field.Name)
+        if (serName.isBlank()) throw EmptyFieldException(Field.Sername)
+        _navigateToPaid.publishEvent(Unit)
     }
 
     private fun processEmptyFieldException(e: EmptyFieldException) {
@@ -40,7 +53,7 @@ class BookingViewModel(
             emptyСitizen = e.field == Field.Citezen,
             emptyNumСitizen = e.field == Field.NumCitezen,
             emptyDateEndСitizen = e.field == Field.DateEndCitezen,
-            )
+        )
     }
 
     fun getBooking() {

@@ -26,7 +26,8 @@
         android:label="Бронирование" >
         <action
             android:id="@+id/action_bookingFragment_to_paidFragment"
-            app:destination="@id/paidFragment" />
+            app:destination="@id/paidFragment"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/paidFragment"
@@ -36,6 +37,6 @@
             android:id="@+id/action_paidFragment_to_hotelFragment"
             app:destination="@id/hotelFragment"
             app:popUpTo="@id/bookingFragment"
-            app:popUpToInclusive="false" />
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

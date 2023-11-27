@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.hotelapplication.R
 import com.example.hotelapplication.app.model.EmptyFieldException
+import com.example.hotelapplication.app.model.Field
 import com.example.hotelapplication.app.ui.hotel.HotelViewModel
 import com.example.hotelapplication.app.utils.ViewModelFactory
 import com.example.hotelapplication.databinding.FragmentBookingBinding
@@ -27,7 +28,7 @@ class BookingFragment : Fragment(R.layout.fragment_booking) {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentBookingBinding.inflate(inflater, container, false)
-        observeState()
+
         viewModel.getBooking()
         viewModel.booking.observe(viewLifecycleOwner) { booking ->
             with(binding) {
@@ -68,10 +69,13 @@ class BookingFragment : Fragment(R.layout.fragment_booking) {
         }
 
         binding.btnToPay.setOnClickListener {
-            val controller = findNavController()
-            viewModel.navigate(controller)
+            viewModel.navigate(
+                binding.nameEditText.text.toString(),
+                binding.touristSernameEditText.text.toString(),
+            )
         }
-
+        observeState()
+        observeNavigateToPaidEvent()
         return binding.root
     }
 
@@ -99,6 +103,11 @@ class BookingFragment : Fragment(R.layout.fragment_booking) {
         touristCounter += 1
         binding.touristListLayoutMain.addView(newCardView.root)
     }
+
+    private fun observeNavigateToPaidEvent() =
+        viewModel.navigateToTabsEvent.observe(viewLifecycleOwner) {
+            findNavController().navigate(R.id.action_bookingFragment_to_paidFragment)
+        }
 
 
 }

@@ -441,13 +441,13 @@
                                 app:cardElevation="4dp">
 
                                 <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/tourist_name"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-
                                     android:hint="Имя">
 
                                     <com.google.android.material.textfield.TextInputEditText
-                                        android:id="@+id/tourist_name"
+                                        android:id="@+id/nameEditText"
                                         style="@style/Input"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content" />
@@ -463,12 +463,13 @@
                                 app:cardElevation="4dp">
 
                                 <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/tourist_sername"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:hint="Фамилия">
 
                                     <com.google.android.material.textfield.TextInputEditText
-                                        android:id="@+id/tourist_sername"
+                                        android:id="@+id/tourist_sername_edit_text"
                                         style="@style/Input"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content" />
@@ -727,12 +728,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/button_navigation"
                 android:text="Оплтатить"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textSize="16sp"
-                android:layout_marginBottom="10dp"/>
+                android:textSize="16sp" />
 
         </LinearLayout>
     </ScrollView>
