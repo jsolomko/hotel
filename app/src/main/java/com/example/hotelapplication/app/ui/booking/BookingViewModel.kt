@@ -3,10 +3,9 @@ package com.example.hotelapplication.app.ui.booking
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.navigation.NavController
-import com.example.core.Event
-import com.example.core.MutableLiveEvent
-import com.example.core.publishEvent
+import com.example.base.Event
+import com.example.base.MutableLiveEvent
+import com.example.base.publishEvent
 import com.example.hotelapplication.app.Singletons
 import com.example.hotelapplication.app.model.EmptyFieldException
 import com.example.hotelapplication.app.model.Field
