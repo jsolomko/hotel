@@ -177,33 +177,32 @@
                             android:orientation="horizontal">
 
                             <!-- TextView 2 -->
+
                             <TextView
                                 android:id="@+id/tv_tour_date_start"
-                                android:layout_width="0dp"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="5dp"
                                 android:layout_weight="1"
-                                android:gravity="center"
+                                android:gravity="end"
+                                android:layout_marginTop="5sp"
                                 android:text="Дата 1"
                                 android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="5dp"
+                                android:layout_marginTop="5sp"
                                 android:gravity="center"
                                 android:text="-"
                                 android:textColor="@color/black" />
 
                             <TextView
                                 android:id="@+id/tv_tour_date_stop"
-                                android:layout_width="0dp"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="5dp"
-                                android:layout_marginStart="0dp"
-                                android:layout_marginEnd="0dp"
+                                android:layout_marginTop="5sp"
                                 android:layout_weight="1"
-                                android:gravity="center"
+                                android:gravity="start"
                                 android:text="Дата 2"
                                 android:textColor="@color/black" />
                         </LinearLayout>

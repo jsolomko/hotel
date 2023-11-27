@@ -1,24 +1,16 @@
 package com.example.hotelapplication.app.ui.booking
 
-import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.hotelapplication.R
-import com.example.hotelapplication.app.model.EmptyFieldException
-import com.example.hotelapplication.app.model.Field
-import com.example.hotelapplication.app.ui.hotel.HotelViewModel
 import com.example.hotelapplication.app.utils.EditTextWatcher
 import com.example.hotelapplication.app.utils.ViewModelFactory
 import com.example.hotelapplication.databinding.FragmentBookingBinding
-import com.example.hotelapplication.databinding.FragmentHotelBinding
 import com.example.hotelapplication.databinding.ItemTouristBinding
 import com.google.android.material.textfield.TextInputEditText
 
@@ -26,6 +18,7 @@ class BookingFragment : Fragment(R.layout.fragment_booking) {
     lateinit var binding: FragmentBookingBinding
     private val viewModel: BookingViewModel by viewModels { ViewModelFactory() }
     private var touristCounter: Int = 0
+    private var sum: Int? = null
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -50,12 +43,14 @@ class BookingFragment : Fragment(R.layout.fragment_booking) {
                 tvTourPrice.text = booking.tour_price.toString()
                 tvFuel.text = booking.fuel_charge.toString()
                 tvService.text = booking.service_charge.toString()
-                val sum = booking.service_charge?.let {
+
+                val sumPrice = booking.service_charge?.let {
                     booking.fuel_charge?.plus(it)
                         ?.let { booking.tour_price?.plus(it) }
                 }
+                sum = sumPrice
 
-                tvToPay.text = sum.toString()
+                tvToPay.text = sumPrice.toString()
 
                 imageViewExpand.setOnClickListener {
                     if (touristListLayout.visibility == View.VISIBLE) {
@@ -67,10 +62,12 @@ class BookingFragment : Fragment(R.layout.fragment_booking) {
                     }
                 }
             }
+            binding.btnToPay.text = getString(R.string.to_pay, sum.toString())
         }
         binding.imageViewAddNewTourist.setOnClickListener {
             addNewTouristCardView()
         }
+
 
         binding.btnToPay.setOnClickListener {
             viewModel.navigate(
