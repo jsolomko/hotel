@@ -15,10 +15,12 @@ import com.example.hotelapplication.R
 import com.example.hotelapplication.app.model.EmptyFieldException
 import com.example.hotelapplication.app.model.Field
 import com.example.hotelapplication.app.ui.hotel.HotelViewModel
+import com.example.hotelapplication.app.utils.EditTextWatcher
 import com.example.hotelapplication.app.utils.ViewModelFactory
 import com.example.hotelapplication.databinding.FragmentBookingBinding
 import com.example.hotelapplication.databinding.FragmentHotelBinding
 import com.example.hotelapplication.databinding.ItemTouristBinding
+import com.google.android.material.textfield.TextInputEditText
 
 class BookingFragment : Fragment(R.layout.fragment_booking) {
     lateinit var binding: FragmentBookingBinding
@@ -76,44 +78,11 @@ class BookingFragment : Fragment(R.layout.fragment_booking) {
                 binding.touristSernameEditText.text.toString(),
             )
         }
-        val phoneEdit = binding.textInputEditTextPhone
+        val phoneEdit: TextInputEditText = binding.textInputEditTextPhone
         phoneEdit.setText("9*********")
 
         phoneEdit.setSelection(1)
-        phoneEdit.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-
-            }
-
-            override fun onTextChanged(s: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                if (s?.length ?: 0 < 1) {
-                    phoneEdit.setText("***********")
-                    phoneEdit.setSelection(1)
-                } else {
-                    val input = s.toString().replace("*", "")
-                    val formattedText = buildString {
-                        var inputIndex = 0
-                        for (i in 1 until 12) {
-                            if (i < input.length + 1) {
-                                append(input[inputIndex])
-                                inputIndex++
-                            } else {
-                                append("*")
-                            }
-                        }
-                    }
-                    phoneEdit.removeTextChangedListener(this)
-                    phoneEdit.setText(formattedText)
-                    phoneEdit.setSelection(formattedText.length)
-                    phoneEdit.addTextChangedListener(this)
-                }
-            }
-
-            override fun afterTextChanged(p0: Editable?) {
-
-            }
-
-        })
+        phoneEdit.addTextChangedListener(EditTextWatcher(phoneEdit))
         observeState()
         observeNavigateToPaidEvent()
         return binding.root
