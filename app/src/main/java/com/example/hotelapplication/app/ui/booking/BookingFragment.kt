@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.hotelapplication.R
 import com.example.hotelapplication.app.utils.EditTextWatcher
 import com.example.hotelapplication.app.utils.ViewModelFactory
+import com.example.hotelapplication.app.view.TouristCustomView
 import com.example.hotelapplication.databinding.FragmentBookingBinding
 import com.example.hotelapplication.databinding.ItemTouristBinding
 import com.google.android.material.textfield.TextInputEditText
@@ -92,22 +93,9 @@ class BookingFragment : Fragment(R.layout.fragment_booking) {
     }
 
     private fun addNewTouristCardView() {
-        val inflater = LayoutInflater.from(requireContext())
-        val newCardView = ItemTouristBinding.inflate(inflater, null, false)
-        val tourists = TouristRepository()
-        newCardView.tvTouristCounterName.text = tourists.getTouristName(touristCounter)
-
-        newCardView.imageViewExpand.setOnClickListener {
-            if (newCardView.touristListLayout.visibility == View.VISIBLE) {
-                newCardView.touristListLayout.visibility = View.GONE
-                newCardView.imageViewExpand.setImageResource(R.drawable.ic_baseline_keyboard_arrow_down_24)
-            } else {
-                newCardView.touristListLayout.visibility = View.VISIBLE
-                newCardView.imageViewExpand.setImageResource(R.drawable.ic_baseline_keyboard_arrow_up_24)
-            }
-        }
+        binding.touristListLayoutMain.addView(TouristCustomView(touristCounter, requireContext()))
         touristCounter += 1
-        binding.touristListLayoutMain.addView(newCardView.root)
+
     }
 
     private fun observeNavigateToPaidEvent() =
