@@ -2,6 +2,8 @@ package com.example.hotelapplication.app.ui.booking
 
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -74,9 +76,58 @@ class BookingFragment : Fragment(R.layout.fragment_booking) {
                 binding.touristSernameEditText.text.toString(),
             )
         }
+        val phoneEdit = binding.textInputEditTextPhone
+        phoneEdit.setText("9*********")
+
+        phoneEdit.setSelection(1)
+        phoneEdit.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                if (s?.length ?: 0 < 1) {
+                    phoneEdit.setText("***********")
+                    phoneEdit.setSelection(1)
+                } else {
+                    val input = s.toString().replace("*", "")
+                    val formattedText = buildString {
+                        var inputIndex = 0
+                        for (i in 1 until 12) {
+                            if (i < input.length + 1) {
+                                append(input[inputIndex])
+                                inputIndex++
+                            } else {
+                                append("*")
+                            }
+                        }
+                    }
+                    phoneEdit.removeTextChangedListener(this)
+                    phoneEdit.setText(formattedText)
+                    phoneEdit.setSelection(formattedText.length)
+                    phoneEdit.addTextChangedListener(this)
+                }
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+
+            }
+
+        })
         observeState()
         observeNavigateToPaidEvent()
         return binding.root
+    }
+
+    fun formatPhoneNumber(phoneNumber: String): String {
+        val formattedNumber = StringBuilder()
+        formattedNumber.append("9")
+        for (i in 1 until phoneNumber.length) {
+            if (i <= 10) {
+                formattedNumber.append(if (Character.isDigit(phoneNumber[i])) phoneNumber[i] else "*")
+            }
+        }
+        return formattedNumber.toString()
     }
 
     private fun observeState() = viewModel.state.observe(viewLifecycleOwner) {

@@ -338,11 +338,11 @@
                             android:hint="Номер телефона">
 
                             <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/textInputEditText"
+                                android:id="@+id/textInputEditTextPhone"
                                 style="@style/Input"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:inputType="phone" />
+                                android:inputType="number" />
 
                         </com.google.android.material.textfield.TextInputLayout>
                     </androidx.cardview.widget.CardView>
