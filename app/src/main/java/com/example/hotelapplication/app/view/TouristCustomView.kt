@@ -18,6 +18,7 @@ class TouristCustomView @JvmOverloads constructor(
 ) : RelativeLayout(context, attrs, defStyleAttr) {
     private var binding: ItemTouristBinding
 
+
     init {
         val inflater = LayoutInflater.from(context)
         inflater.inflate(R.layout.item_tourist, this, true)
