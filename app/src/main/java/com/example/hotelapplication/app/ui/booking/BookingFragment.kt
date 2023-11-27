@@ -42,6 +42,16 @@ class BookingFragment : Fragment(R.layout.fragment_booking) {
                 tvHotelNameRoom.text = booking.hotel_name
                 tvRoom.text = booking.room
                 tvNutrition.text = booking.nutrition
+                tvTourPrice.text = booking.tour_price.toString()
+                tvFuel.text = booking.fuel_charge.toString()
+                tvService.text = booking.service_charge.toString()
+                val sum = booking.service_charge?.let {
+                    booking.fuel_charge?.plus(it)
+                        ?.let { booking.tour_price?.plus(it) }
+                }
+
+                tvToPay.text = sum.toString()
+
                 imageViewExpand.setOnClickListener {
                     if (touristListLayout.visibility == View.VISIBLE) {
                         touristListLayout.visibility = View.GONE
@@ -72,12 +82,11 @@ class BookingFragment : Fragment(R.layout.fragment_booking) {
     }
 
     private fun addNewTouristCardView() {
-
         val inflater = LayoutInflater.from(requireContext())
         val newCardView = ItemTouristBinding.inflate(inflater, null, false)
         val tourists = TouristRepository()
+        newCardView.tvTouristCounterName.text = tourists.getTouristName(touristCounter)
 
-        newCardView.tvTouristCounterName.text = tourists.tourists.get(touristCounter).name
         newCardView.imageViewExpand.setOnClickListener {
             if (newCardView.touristListLayout.visibility == View.VISIBLE) {
                 newCardView.touristListLayout.visibility = View.GONE

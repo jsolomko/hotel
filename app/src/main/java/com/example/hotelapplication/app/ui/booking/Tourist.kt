@@ -5,10 +5,16 @@ class Tourist(
 )
 
 class TouristRepository() {
-    val tourists: MutableList<Tourist> = mutableListOf<Tourist>().apply {
+    private val _tourists: MutableList<Tourist> = mutableListOf<Tourist>().apply {
         add(Tourist("Второй турист"))
         add(Tourist("Третий турист"))
         add(Tourist("Четвертый турист"))
     }
 
+    val tourists: List<Tourist>
+        get() = _tourists.toList()
+
+    fun getTouristName(index: Int): String {
+        return _tourists.getOrNull(index)?.name ?: ""
+    }
 }
