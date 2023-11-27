@@ -80,7 +80,6 @@ class BookingFragment : Fragment(R.layout.fragment_booking) {
         }
         val phoneEdit: TextInputEditText = binding.textInputEditTextPhone
         phoneEdit.setText("9*********")
-
         phoneEdit.setSelection(1)
         phoneEdit.addTextChangedListener(EditTextWatcher(phoneEdit))
         observeState()
@@ -88,16 +87,6 @@ class BookingFragment : Fragment(R.layout.fragment_booking) {
         return binding.root
     }
 
-    fun formatPhoneNumber(phoneNumber: String): String {
-        val formattedNumber = StringBuilder()
-        formattedNumber.append("9")
-        for (i in 1 until phoneNumber.length) {
-            if (i <= 10) {
-                formattedNumber.append(if (Character.isDigit(phoneNumber[i])) phoneNumber[i] else "*")
-            }
-        }
-        return formattedNumber.toString()
-    }
 
     private fun observeState() = viewModel.state.observe(viewLifecycleOwner) {
         binding.touristName.error = if (it.emptyName) getString(R.string.field_is_empty) else null
