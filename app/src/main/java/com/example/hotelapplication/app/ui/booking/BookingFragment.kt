@@ -12,7 +12,6 @@ import com.example.hotelapplication.app.utils.EditTextWatcher
 import com.example.hotelapplication.app.utils.ViewModelFactory
 import com.example.hotelapplication.app.view.TouristCustomView
 import com.example.hotelapplication.databinding.FragmentBookingBinding
-import com.example.hotelapplication.databinding.ItemTouristBinding
 import com.google.android.material.textfield.TextInputEditText
 
 class BookingFragment : Fragment(R.layout.fragment_booking) {

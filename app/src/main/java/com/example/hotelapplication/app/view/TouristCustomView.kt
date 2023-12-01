@@ -1,6 +1,5 @@
 package com.example.hotelapplication.app.view
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
@@ -26,7 +25,7 @@ class TouristCustomView @JvmOverloads constructor(
         fillView()
     }
 
-    fun fillView() {
+    private fun fillView() {
         val tourists = TouristRepository()
         binding.tvTouristCounterName.text = tourists.getTouristName(counter)
 
