@@ -13,7 +13,9 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.hotelapplication.R
 import com.example.hotelapplication.databinding.ActivityMainBinding
 import com.example.hotelapplication.databinding.ToolbarBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     var navController: NavController? = null

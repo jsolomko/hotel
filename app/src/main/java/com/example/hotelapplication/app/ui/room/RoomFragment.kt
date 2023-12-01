@@ -14,10 +14,12 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.hotelapplication.R
 import com.example.hotelapplication.app.utils.ViewModelFactory
 import com.example.hotelapplication.databinding.FragmentRoomBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class RoomFragment : Fragment(R.layout.fragment_room) {
     lateinit var binding: FragmentRoomBinding
-    private val viewModel: RoomViewModel by viewModels { ViewModelFactory() }
+    private val viewModel by viewModels<RoomViewModel>()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

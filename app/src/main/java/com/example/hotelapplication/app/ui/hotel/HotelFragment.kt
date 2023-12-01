@@ -11,10 +11,12 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.hotelapplication.R
 import com.example.hotelapplication.app.utils.ViewModelFactory
 import com.example.hotelapplication.databinding.FragmentHotelBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HotelFragment : Fragment(R.layout.fragment_hotel) {
     lateinit var binding: FragmentHotelBinding
-    private val viewModel: HotelViewModel by viewModels { ViewModelFactory() }
+    private val viewModel by viewModels<HotelViewModel>()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -30,7 +32,6 @@ class HotelFragment : Fragment(R.layout.fragment_hotel) {
 
             with(binding) {
                 val images = hotel.image_urls
-                println("images ${images?.get(0)}")
 
                 viewPager.adapter = SliderAdapter(images!!, requireActivity())
 

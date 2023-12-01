@@ -6,16 +6,18 @@ import androidx.lifecycle.viewModelScope
 import com.example.base.Event
 import com.example.base.MutableLiveEvent
 import com.example.base.publishEvent
-import com.example.hotelapplication.app.Singletons
 import com.example.hotelapplication.app.model.EmptyFieldException
 import com.example.hotelapplication.app.model.Field
 import com.example.hotelapplication.app.model.booking.Booking
 import com.example.hotelapplication.app.model.booking.BookingRepository
 import com.example.hotelapplication.app.utils.share
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class BookingViewModel(
-    private val bookingRepository: BookingRepository = Singletons.bookingRepository
+@HiltViewModel
+class BookingViewModel @Inject constructor(
+    private val bookingRepository: BookingRepository
 ) : ViewModel() {
     private var _booking = MutableLiveData<Booking>()
     val booking = _booking.share()

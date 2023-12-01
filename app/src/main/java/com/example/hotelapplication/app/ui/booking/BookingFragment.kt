@@ -13,10 +13,12 @@ import com.example.hotelapplication.app.utils.ViewModelFactory
 import com.example.hotelapplication.app.view.TouristCustomView
 import com.example.hotelapplication.databinding.FragmentBookingBinding
 import com.google.android.material.textfield.TextInputEditText
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class BookingFragment : Fragment(R.layout.fragment_booking) {
     lateinit var binding: FragmentBookingBinding
-    private val viewModel: BookingViewModel by viewModels { ViewModelFactory() }
+    private val viewModel by viewModels<BookingViewModel>()
     private var touristCounter: Int = 0
     private var sum: Int? = null
     override fun onCreateView(

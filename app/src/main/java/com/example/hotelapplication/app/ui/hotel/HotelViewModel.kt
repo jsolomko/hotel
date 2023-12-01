@@ -3,14 +3,16 @@ package com.example.hotelapplication.app.ui.hotel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.hotelapplication.app.Singletons
 import com.example.hotelapplication.app.model.hotel.Hotel
 import com.example.hotelapplication.app.model.hotel.HotelRepository
 import com.example.hotelapplication.app.utils.share
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class HotelViewModel(
-    private val hotelRepository: HotelRepository = Singletons.hotelRepository
+@HiltViewModel
+class HotelViewModel @Inject constructor(
+    private val hotelRepository: HotelRepository
 ) : ViewModel() {
 
     private var _hotel = MutableLiveData<Hotel>()
