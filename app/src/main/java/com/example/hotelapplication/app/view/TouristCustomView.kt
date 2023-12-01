@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.RelativeLayout
 import com.example.hotelapplication.R
-import com.example.hotelapplication.app.ui.booking.TouristRepository
+import com.example.hotelapplication.app.model.booking.TouristRepository
 import com.example.hotelapplication.databinding.ItemTouristBinding
 
 class TouristCustomView @JvmOverloads constructor(

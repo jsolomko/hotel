@@ -1,4 +1,4 @@
-package com.example.hotelapplication.app.ui.booking
+package com.example.hotelapplication.app.model.booking
 
 class Tourist(
     val name: String

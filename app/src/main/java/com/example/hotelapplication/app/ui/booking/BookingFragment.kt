@@ -70,7 +70,6 @@ class BookingFragment : Fragment(R.layout.fragment_booking) {
             addNewTouristCardView()
         }
 
-
         binding.btnToPay.setOnClickListener {
             viewModel.navigate(
                 binding.nameEditText.text.toString(),
