@@ -88,8 +88,7 @@ class BookingFragment : Fragment(R.layout.fragment_booking) {
 
     private fun observeState() = viewModel.state.observe(viewLifecycleOwner) {
         binding.touristName.error = if (it.emptyName) getString(R.string.field_is_empty) else null
-        binding.touristSername.error =
-            if (it.emptySername) getString(R.string.field_is_empty) else null
+        binding.touristSername.error = if (it.emptySername) getString(R.string.field_is_empty) else null
     }
 
     private fun addNewTouristCardView() {
