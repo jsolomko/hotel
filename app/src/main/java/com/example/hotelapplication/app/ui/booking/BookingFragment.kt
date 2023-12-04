@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.example.base.observeEvent
 import com.example.hotelapplication.R
 import com.example.hotelapplication.app.utils.EditTextWatcher
 import com.example.hotelapplication.app.utils.ViewModelFactory
@@ -74,13 +76,26 @@ class BookingFragment : Fragment(R.layout.fragment_booking) {
             viewModel.navigate(
                 binding.nameEditText.text.toString(),
                 binding.touristSernameEditText.text.toString(),
+                binding.EditTextEmail.text.toString()
             )
         }
         val phoneEdit: TextInputEditText = binding.textInputEditTextPhone
         phoneEdit.setText("9*********")
         phoneEdit.setSelection(1)
+
+        val mailEdit = binding.EditTextEmail
+/*        mailEdit.doOnTextChanged { text, start, before, count ->
+            val regex =
+                Regex("^([\\w-]+(?:\\.[\\w-]+)*)@((?:[\\w-]+\\.)*\\w[\\w-]{0,66})\\.([a-z]{2,6}(?:\\.[a-z]{2})?)\$")
+            if (text != null) {
+                if (!regex.matches(text)) mailEdit.error =
+                    resources.getString(R.string.not_correct_email)
+                else mailEdit.error = null
+            }
+        }*/
         phoneEdit.addTextChangedListener(EditTextWatcher(phoneEdit))
         observeState()
+        observeEmailNotCorrectEvent()
         observeNavigateToPaidEvent()
         return binding.root
     }
@@ -88,13 +103,21 @@ class BookingFragment : Fragment(R.layout.fragment_booking) {
 
     private fun observeState() = viewModel.state.observe(viewLifecycleOwner) {
         binding.touristName.error = if (it.emptyName) getString(R.string.field_is_empty) else null
-        binding.touristSername.error = if (it.emptySername) getString(R.string.field_is_empty) else null
+        binding.touristSername.error =
+            if (it.emptySername) getString(R.string.field_is_empty) else null
+
     }
 
     private fun addNewTouristCardView() {
         binding.touristListLayoutMain.addView(TouristCustomView(touristCounter, requireContext()))
         touristCounter += 1
 
+    }
+
+    private fun observeEmailNotCorrectEvent() {
+        viewModel.emailExceptionEvent.observeEvent(viewLifecycleOwner) {
+            binding.textInputLayoutEmail.error = it
+        }
     }
 
     private fun observeNavigateToPaidEvent() =

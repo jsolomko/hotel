@@ -354,13 +354,13 @@
                         app:cardElevation="4dp">
 
                         <com.google.android.material.textfield.TextInputLayout
-                            android:id="@+id/textInputLayout2"
+                            android:id="@+id/textInputLayoutEmail"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Почта">
 
                             <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/textInputEditText2"
+                                android:id="@+id/EditTextEmail"
                                 style="@style/Input"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"

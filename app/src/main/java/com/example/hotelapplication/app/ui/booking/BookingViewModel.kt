@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.base.Event
 import com.example.base.MutableLiveEvent
 import com.example.base.publishEvent
+import com.example.hotelapplication.app.model.EmailValidationException
 import com.example.hotelapplication.app.model.EmptyFieldException
 import com.example.hotelapplication.app.model.Field
 import com.example.hotelapplication.app.model.booking.Booking
@@ -31,18 +32,32 @@ class BookingViewModel @Inject constructor(
     private var _emptyFieldExceptionEvent = MutableLiveEvent<String>()
     var emptyFieldExceptionEvent = _emptyFieldExceptionEvent.share()
 
-    fun navigate(name: String, serName: String) {
+    private var _emailExceptionEvent = MutableLiveEvent<String>()
+    var emailExceptionEvent = _emailExceptionEvent.share()
+
+    fun navigate(name: String, serName: String, email: String) {
         try {
-            startPay(name, serName)
+            startPay(name, serName, email)
         } catch (e: EmptyFieldException) {
             processEmptyFieldException(e)
+        } catch (e: EmailValidationException) {
+            processEmailException(e)
+
         }
 
     }
 
-    private fun startPay(name: String, serName: String) {
+    private fun processEmailException(e: EmailValidationException) {
+        _emailExceptionEvent.publishEvent(e.message2)
+    }
+
+    private fun startPay(name: String, serName: String, email: String) {
         if (name.isBlank()) throw EmptyFieldException(Field.Name)
         if (serName.isBlank()) throw EmptyFieldException(Field.Sername)
+        val regex =
+            Regex("^([\\w-]+(?:\\.[\\w-]+)*)@((?:[\\w-]+\\.)*\\w[\\w-]{0,66})\\.([a-z]{2,6}(?:\\.[a-z]{2})?)\$")
+        if (!regex.matches(email)) throw EmailValidationException("Не корректный адресс")
+
         _navigateToPaid.publishEvent(Unit)
     }
 

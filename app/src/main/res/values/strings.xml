@@ -10,4 +10,5 @@
     <string name="confirmation_order">Подтверждение заказа №104893 может занять некоторое время (от 1 часа до суток). Как только мы получим ответ от туроператора, вам на почту придет уведомление.</string>
     <string name="field_is_empty">Заполните поле</string>
     <string name="to_pay">Оплатить %s</string>
+    <string name="not_correct_email">Не корректный адрес</string>
 </resources>

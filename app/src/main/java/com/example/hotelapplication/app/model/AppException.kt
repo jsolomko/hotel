@@ -7,3 +7,8 @@ open class AppException : RuntimeException {
 class EmptyFieldException(
     val field: Field
 ) : AppException()
+
+class EmailValidationException(
+   val message2: String
+
+) : AppException()
