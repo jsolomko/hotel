@@ -11,4 +11,5 @@
     <string name="field_is_empty">Заполните поле</string>
     <string name="to_pay">Оплатить %s</string>
     <string name="not_correct_email">Не корректный адрес</string>
+    <string name="field_not_valid">Не корректный даные</string>
 </resources>

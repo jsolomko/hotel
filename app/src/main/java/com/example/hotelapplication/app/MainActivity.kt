@@ -11,15 +11,19 @@ import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.hotelapplication.R
+import com.example.hotelapplication.app.model.hotel.HotelRepository
 import com.example.hotelapplication.databinding.ActivityMainBinding
 import com.example.hotelapplication.databinding.ToolbarBinding
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     var navController: NavController? = null
     private var appBarConfiguration: AppBarConfiguration? = null
+    @Inject lateinit var hotelRepository: HotelRepository
+    @Inject lateinit var hotelRepository1: HotelRepository
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -30,6 +34,8 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
 
+        println(hotelRepository)
+        println(hotelRepository1)
         navController = navHostFragment.navController
         appBarConfiguration =
             AppBarConfiguration(

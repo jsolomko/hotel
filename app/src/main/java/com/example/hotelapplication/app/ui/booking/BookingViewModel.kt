@@ -1,5 +1,6 @@
 package com.example.hotelapplication.app.ui.booking
 
+import android.util.Patterns
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -14,6 +15,7 @@ import com.example.hotelapplication.app.model.booking.BookingRepository
 import com.example.hotelapplication.app.utils.share
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import java.text.Format
 import javax.inject.Inject
 
 @HiltViewModel
@@ -32,7 +34,7 @@ class BookingViewModel @Inject constructor(
     private var _emptyFieldExceptionEvent = MutableLiveEvent<String>()
     var emptyFieldExceptionEvent = _emptyFieldExceptionEvent.share()
 
-    private var _emailExceptionEvent = MutableLiveEvent<String>()
+    private var _emailExceptionEvent = MutableLiveData<State>()
     var emailExceptionEvent = _emailExceptionEvent.share()
 
     fun navigate(name: String, serName: String, email: String) {
@@ -42,22 +44,19 @@ class BookingViewModel @Inject constructor(
             processEmptyFieldException(e)
         } catch (e: EmailValidationException) {
             processEmailException(e)
-
         }
-
     }
 
     private fun processEmailException(e: EmailValidationException) {
-        _emailExceptionEvent.publishEvent(e.message2)
+        _emailExceptionEvent.value = State(emptyCitizen = e.field == Field.Citezen)
     }
 
     private fun startPay(name: String, serName: String, email: String) {
         if (name.isBlank()) throw EmptyFieldException(Field.Name)
         if (serName.isBlank()) throw EmptyFieldException(Field.Sername)
-        val regex =
-            Regex("^([\\w-]+(?:\\.[\\w-]+)*)@((?:[\\w-]+\\.)*\\w[\\w-]{0,66})\\.([a-z]{2,6}(?:\\.[a-z]{2})?)\$")
-        if (!regex.matches(email)) throw EmailValidationException("Не корректный адресс")
-
+        if (!Patterns.EMAIL_ADDRESS.matcher(email)
+                .matches()
+        ) throw EmailValidationException(Field.Citezen)
         _navigateToPaid.publishEvent(Unit)
     }
 
@@ -66,9 +65,9 @@ class BookingViewModel @Inject constructor(
             emptyName = e.field == Field.Name,
             emptySername = e.field == Field.Sername,
             emptyDate = e.field == Field.Birthdate,
-            emptyСitizen = e.field == Field.Citezen,
-            emptyNumСitizen = e.field == Field.NumCitezen,
-            emptyDateEndСitizen = e.field == Field.DateEndCitezen,
+            emptyCitizen = e.field == Field.Citezen,
+            emptyNumCitizen = e.field == Field.NumCitezen,
+            emptyDateEndCitizen = e.field == Field.DateEndCitezen,
         )
     }
 
@@ -82,8 +81,14 @@ class BookingViewModel @Inject constructor(
         val emptyName: Boolean = false,
         val emptySername: Boolean = false,
         val emptyDate: Boolean = false,
-        val emptyСitizen: Boolean = false,
-        val emptyNumСitizen: Boolean = false,
-        val emptyDateEndСitizen: Boolean = false,
-    )
+        val emptyCitizen: Boolean = false,
+        val emptyNumCitizen: Boolean = false,
+        val emptyDateEndCitizen: Boolean = false,
+    ) {
+    }
+
+    enum class TextFieldType {
+        EMAIL,
+        PASSWORD
+    }
 }

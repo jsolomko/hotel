@@ -182,9 +182,9 @@
                                 android:id="@+id/tv_tour_date_start"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginTop="5sp"
                                 android:layout_weight="1"
                                 android:gravity="end"
-                                android:layout_marginTop="5sp"
                                 android:text="Дата 1"
                                 android:textColor="@color/black" />
 
@@ -341,7 +341,8 @@
                                 style="@style/Input"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:inputType="number" />
+                                android:inputType="phone"
+                                android:maxLength="15" />
 
                         </com.google.android.material.textfield.TextInputLayout>
                     </androidx.cardview.widget.CardView>
@@ -440,7 +441,7 @@
                                 app:cardElevation="4dp">
 
                                 <com.google.android.material.textfield.TextInputLayout
-                                    android:id="@+id/tourist_name"
+                                    android:id="@+id/touristName"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:hint="Имя">
@@ -462,7 +463,7 @@
                                 app:cardElevation="4dp">
 
                                 <com.google.android.material.textfield.TextInputLayout
-                                    android:id="@+id/tourist_sername"
+                                    android:id="@+id/touristSername"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:hint="Фамилия">
@@ -509,6 +510,7 @@
                                     android:hint="Гражданство">
 
                                     <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/tourist_citizen"
                                         style="@style/Input"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content" />
@@ -529,6 +531,7 @@
                                     android:hint="Номер загранпаспорта">
 
                                     <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/tourist_citizen_number"
                                         style="@style/Input"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content" />

@@ -9,6 +9,6 @@ class EmptyFieldException(
 ) : AppException()
 
 class EmailValidationException(
-   val message2: String
+    val field: Field
 
 ) : AppException()

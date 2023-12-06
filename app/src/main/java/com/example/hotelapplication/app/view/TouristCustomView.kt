@@ -40,5 +40,11 @@ class TouristCustomView @JvmOverloads constructor(
         }
     }
 
+    fun validate() {
+        if (binding.touristNameEditText.text.isNullOrBlank()) {
+            binding.touristNameLayout.error = "NOT EMPTY"
+        } else binding.touristNameLayout.error = null
+    }
+
 
 }

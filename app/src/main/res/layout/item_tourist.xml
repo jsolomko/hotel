@@ -64,12 +64,13 @@
                     app:cardElevation="4dp">
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/tourist_name"
+                        android:id="@+id/touristNameLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Имя">
 
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/touristNameEditText"
                             style="@style/Input"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
@@ -87,10 +88,11 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/tourist_sername"
+                        android:id="@+id/touristSernameLayout"
                         android:hint="Фамилия">
 
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/touristSernameEditText"
                             style="@style/Input"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
