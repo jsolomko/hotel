@@ -33,6 +33,7 @@ class BookingFragment : Fragment(R.layout.fragment_booking) {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
+
     ): View? {
         binding = FragmentBookingBinding.inflate(inflater, container, false)
 
