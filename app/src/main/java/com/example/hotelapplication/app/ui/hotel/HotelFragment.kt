@@ -9,14 +9,24 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.hotelapplication.R
+import com.example.hotelapplication.app.di.NetworkModule
 import com.example.hotelapplication.app.utils.ViewModelFactory
 import com.example.hotelapplication.databinding.FragmentHotelBinding
 import dagger.hilt.android.AndroidEntryPoint
+import java.io.BufferedInputStream
+import java.io.InputStreamReader
+import java.net.URLConnection
+import javax.inject.Inject
+import kotlin.concurrent.thread
 
 @AndroidEntryPoint
 class HotelFragment : Fragment(R.layout.fragment_hotel) {
     lateinit var binding: FragmentHotelBinding
     private val viewModel by viewModels<HotelViewModel>()
+
+    @Inject
+    lateinit var urlConnection: URLConnection
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -55,6 +65,21 @@ class HotelFragment : Fragment(R.layout.fragment_hotel) {
         }
 
 
+
+        urlConnection.setRequestProperty("MY-HEADER", "HEADERS")
+
+        binding.tvPriceForIt.setOnClickListener {
+            thread {
+                urlConnection.connect()
+                val inputStream = BufferedInputStream(urlConnection.getInputStream())
+                val reader = InputStreamReader(inputStream)
+                val text = reader.readText()
+                println(text)
+                reader.close()
+                inputStream.close()
+
+            }
+        }
         return binding.root
     }
 }
