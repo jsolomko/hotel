@@ -11,7 +11,15 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import java.io.BufferedInputStream
+import java.io.InputStreamReader
+import java.net.HttpURLConnection
+import java.net.URL
+import java.net.URLConnection
+import java.nio.file.Path
+import javax.inject.Inject
 import javax.inject.Singleton
+import kotlin.concurrent.thread
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -44,4 +52,25 @@ class NetworkModule {
     private fun createAuthorizationInterceptor(): Interceptor {
         return HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
     }
+
+    @Provides
+    @Singleton
+    fun createUrl(path: String): URL {
+        return URL("https://jsonplaceholder.typicode.com/$path")
+    }
+
+    @Provides
+    @Singleton
+    fun createUrlConnection(url: URL): URLConnection {
+//        val url = URL("https://jsonplaceholder.typicode.com/")
+        return url.openConnection()
+    }
+
+    @Provides
+    fun getPosts(): String {
+        return "posts"
+    }
+
+
+    fun getUsers(): String = "users"
 }

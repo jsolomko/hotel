@@ -15,15 +15,22 @@ import com.example.hotelapplication.app.model.hotel.HotelRepository
 import com.example.hotelapplication.databinding.ActivityMainBinding
 import com.example.hotelapplication.databinding.ToolbarBinding
 import dagger.hilt.android.AndroidEntryPoint
+import okhttp3.OkHttpClient
+import java.io.BufferedInputStream
+import java.io.InputStreamReader
+import java.net.URLConnection
 import javax.inject.Inject
+import kotlin.concurrent.thread
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
+
+
+
     var navController: NavController? = null
     private var appBarConfiguration: AppBarConfiguration? = null
-    @Inject lateinit var hotelRepository: HotelRepository
-    @Inject lateinit var hotelRepository1: HotelRepository
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -34,8 +41,7 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
 
-        println(hotelRepository)
-        println(hotelRepository1)
+
         navController = navHostFragment.navController
         appBarConfiguration =
             AppBarConfiguration(
