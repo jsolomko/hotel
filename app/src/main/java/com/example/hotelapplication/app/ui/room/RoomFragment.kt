@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -21,6 +22,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class RoomFragment : Fragment(R.layout.fragment_room) {
     lateinit var binding: FragmentRoomBinding
     private val viewModel by viewModels<RoomViewModel>()
+    private lateinit var recyclerView: RecyclerView
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -29,13 +31,15 @@ class RoomFragment : Fragment(R.layout.fragment_room) {
         binding = FragmentRoomBinding.inflate(inflater, container, false)
 
 
-        val recyclerView = binding.rvRooms.apply {
-            layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
-        }
-        binding.shimmerRoom.startShimmer()
+        initView()
+        observeRooms()
+        observeIOException()
+        return binding.root
+    }
+
+    fun observeRooms() {
         viewModel.getRooms()
         viewModel.rooms.observe(viewLifecycleOwner) {
-
             recyclerView.adapter = RoomAdapter(it, requireContext()) {
                 findNavController().navigate(R.id.bookingFragment)
             }
@@ -43,7 +47,22 @@ class RoomFragment : Fragment(R.layout.fragment_room) {
             binding.shimmerRoom.isVisible = false
         }
 
-
-        return binding.root
     }
+
+    private fun initView() {
+        recyclerView = binding.rvRooms.apply {
+            layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
+        }
+        binding.shimmerRoom.startShimmer()
+    }
+
+    private fun observeIOException() {
+        viewModel.iOExceptionEvent.observe(viewLifecycleOwner) {
+            if (it) {
+                Toast.makeText(requireContext(), "LOST CONNECTION", Toast.LENGTH_SHORT).show()
+                binding.shimmerRoom.stopShimmer()
+            }
+        }
+    }
+
 }
