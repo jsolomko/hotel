@@ -40,6 +40,7 @@ class BookingFragment : Fragment(R.layout.fragment_booking) {
         viewModel.getBooking()
         viewModel.booking.observe(viewLifecycleOwner) { booking ->
             with(binding) {
+
                 tvHotelName.text = booking.hotel_name
                 tvHotelAddress.text = booking.hotel_adress
 

@@ -44,7 +44,6 @@ class HotelFragment : Fragment(R.layout.fragment_hotel) {
                 val images = hotel.image_urls
 
                 viewPager.adapter = SliderAdapter(images!!, requireActivity())
-
                 tvHotelName.text = hotel.name
                 tvHotelAddress.text = hotel.adress
                 tvRating.text = hotel.rating.toString()

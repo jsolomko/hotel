@@ -7,10 +7,19 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
-    <ScrollView
-        android:layout_marginTop="50dp"
+<!--
+    <com.facebook.shimmer.ShimmerFrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+        <include layout="@layout/shimmer_hotel" />
+    </com.facebook.shimmer.ShimmerFrameLayout>
+-->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp">
         <!-- Заголовок "Отель" -->
         <RelativeLayout
             android:layout_width="match_parent"
@@ -112,16 +121,16 @@
                             android:text="@string/fromPrice"
                             android:textColor="@color/black"
                             android:textSize="30sp"
-                            android:textStyle="bold"/>
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/tv_minimal_price"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:hint="10000"
-                            android:textStyle="bold"
                             android:textColor="@color/black"
-                            android:textSize="30sp" />
+                            android:textSize="30sp"
+                            android:textStyle="bold" />
 
                         <ImageView
                             android:layout_width="wrap_content"
@@ -135,8 +144,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="5dp"
-                            android:textAllCaps="false"
-                            android:hint="за тур с перелетом"/>
+                            android:hint="за тур с перелетом"
+                            android:textAllCaps="false" />
                     </LinearLayout>
 
 
