@@ -34,7 +34,7 @@ open class BaseViewModel(@ApplicationContext val context: Context) : ViewModel()
         _iOExceptionEvent.value = true
     }
 
-     fun observeConnection() {
+    fun observeConnection() {
         connectivityManager =
             context.getSystemService(ConnectivityManager::class.java) as ConnectivityManager
 
