@@ -13,6 +13,7 @@ class ConnectionCallback(
 
     override fun onAvailable(network: Network) {
         super.onAvailable(network)
+        println("onAvailable")
         block.invoke()
     }
 

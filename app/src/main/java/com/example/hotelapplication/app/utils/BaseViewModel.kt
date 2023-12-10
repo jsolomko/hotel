@@ -26,24 +26,22 @@ open class BaseViewModel(@ApplicationContext val context: Context) : ViewModel()
                 block()
             } catch (e: IOException) {
                 processIOException(e)
-                observeConnection()
             }
         }
-
     }
 
     private fun processIOException(e: IOException) {
         _iOExceptionEvent.value = true
     }
 
-    fun observeConnection() {
+     fun observeConnection() {
         connectivityManager =
             context.getSystemService(ConnectivityManager::class.java) as ConnectivityManager
 
         connectivityManager.requestNetwork(
             NetworkReq.request,
             ConnectionCallback(context) {
-                _onAvailableEvent.value = true
+                _onAvailableEvent.postValue(true)
             })
     }
 }

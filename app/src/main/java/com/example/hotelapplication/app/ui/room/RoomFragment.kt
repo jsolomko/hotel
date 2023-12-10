@@ -1,5 +1,6 @@
 package com.example.hotelapplication.app.ui.room
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -30,14 +31,14 @@ class RoomFragment : Fragment(R.layout.fragment_room) {
     ): View? {
         binding = FragmentRoomBinding.inflate(inflater, container, false)
 
-
         initView()
         observeRooms()
         observeIOException()
+        observeConnection()
         return binding.root
     }
 
-    fun observeRooms() {
+    private fun observeRooms() {
         viewModel.getRooms()
         viewModel.rooms.observe(viewLifecycleOwner) {
             recyclerView.adapter = RoomAdapter(it, requireContext()) {
@@ -46,22 +47,44 @@ class RoomFragment : Fragment(R.layout.fragment_room) {
             binding.shimmerRoom.stopShimmer()
             binding.shimmerRoom.isVisible = false
         }
-
     }
 
     private fun initView() {
         recyclerView = binding.rvRooms.apply {
             layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
         }
+
         binding.shimmerRoom.startShimmer()
     }
 
     private fun observeIOException() {
         viewModel.iOExceptionEvent.observe(viewLifecycleOwner) {
             if (it) {
-                Toast.makeText(requireContext(), "LOST CONNECTION", Toast.LENGTH_SHORT).show()
+                val builder: AlertDialog.Builder = AlertDialog.Builder(context)
+                builder
+                    .setMessage("Ошибка сети")
+                    .setTitle("I am the title")
+                    .setPositiveButton("Загрузить снова") { dialog, which ->
+                        viewModel.getRooms()
+                    }
+                    .setNegativeButton("Отбой") { dialog, which ->
+
+                    }
+
+
+                val dialog: AlertDialog = builder.create()
+                dialog.show()
+
+//                Toast.makeText(requireContext(), "Ошибка сети", Toast.LENGTH_SHORT).show()
                 binding.shimmerRoom.stopShimmer()
             }
+        }
+    }
+
+    private fun observeConnection() {
+        viewModel.observeConnection()
+        viewModel.onAvailableEvent.observe(viewLifecycleOwner) {
+            if (it) viewModel.getRooms()
         }
     }
 

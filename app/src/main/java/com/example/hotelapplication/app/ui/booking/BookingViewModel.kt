@@ -1,8 +1,8 @@
 package com.example.hotelapplication.app.ui.booking
 
+import android.content.Context
 import android.util.Patterns
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.base.Event
 import com.example.base.MutableLiveEvent
@@ -12,17 +12,19 @@ import com.example.hotelapplication.app.model.EmptyFieldException
 import com.example.hotelapplication.app.model.Field
 import com.example.hotelapplication.app.model.booking.Booking
 import com.example.hotelapplication.app.model.booking.BookingRepository
+import com.example.hotelapplication.app.utils.BaseViewModel
 import com.example.hotelapplication.app.utils.share
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import java.text.Format
 import javax.inject.Inject
 
 @HiltViewModel
 class BookingViewModel @Inject constructor(
+    @ApplicationContext context: Context,
     private val bookingRepository: BookingRepository
-) : ViewModel() {
+) : BaseViewModel(context) {
     private var _booking = MutableLiveData<Booking>()
     val booking = _booking.share()
 
@@ -38,7 +40,7 @@ class BookingViewModel @Inject constructor(
     private var _emailExceptionEvent = MutableLiveData<State>()
     var emailExceptionEvent = _emailExceptionEvent.share()
 
-    fun navigate(name: String, serName: String, email: String) {
+    fun navigateToPay(name: String, serName: String, email: String) {
         try {
             startPay(name, serName, email)
         } catch (e: EmptyFieldException) {
@@ -73,8 +75,8 @@ class BookingViewModel @Inject constructor(
     }
 
     fun getBooking() {
-        viewModelScope.launch {
-            delay(4000)
+        viewModelScope.safeLaunch {
+            delay(2000)
             _booking.value = bookingRepository.getBooking()
         }
     }
