@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -31,11 +32,15 @@ class RoomFragment : Fragment(R.layout.fragment_room) {
         val recyclerView = binding.rvRooms.apply {
             layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
         }
+        binding.shimmerRoom.startShimmer()
         viewModel.getRooms()
         viewModel.rooms.observe(viewLifecycleOwner) {
+
             recyclerView.adapter = RoomAdapter(it, requireContext()) {
                 findNavController().navigate(R.id.bookingFragment)
             }
+            binding.shimmerRoom.stopShimmer()
+            binding.shimmerRoom.isVisible = false
         }
 
 

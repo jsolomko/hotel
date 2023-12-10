@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -36,6 +37,8 @@ class BookingFragment : Fragment(R.layout.fragment_booking) {
 
     ): View? {
         binding = FragmentBookingBinding.inflate(inflater, container, false)
+        binding.scrollViewBooking.isVisible = false
+        binding.shimmerBooking.startShimmer()
 
         viewModel.getBooking()
         viewModel.booking.observe(viewLifecycleOwner) { booking ->
@@ -76,6 +79,9 @@ class BookingFragment : Fragment(R.layout.fragment_booking) {
             }
             binding.btnToPay.text = getString(R.string.to_pay, sum.toString())
 
+            binding.scrollViewBooking.isVisible = true
+            binding.shimmerBooking.stopShimmer()
+            binding.shimmerBooking.isVisible = false
         }
 
 

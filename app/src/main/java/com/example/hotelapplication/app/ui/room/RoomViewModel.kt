@@ -7,6 +7,7 @@ import com.example.hotelapplication.app.model.room.Room
 import com.example.hotelapplication.app.model.room.RoomRepository
 import com.example.hotelapplication.app.utils.share
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -20,6 +21,7 @@ class RoomViewModel @Inject constructor(
 
     fun getRooms() {
         viewModelScope.launch {
+            delay(1000)
             _rooms.value = roomRepository.getRooms()
         }
     }

@@ -14,6 +14,7 @@ import com.example.hotelapplication.app.model.booking.Booking
 import com.example.hotelapplication.app.model.booking.BookingRepository
 import com.example.hotelapplication.app.utils.share
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.text.Format
 import javax.inject.Inject
@@ -73,6 +74,7 @@ class BookingViewModel @Inject constructor(
 
     fun getBooking() {
         viewModelScope.launch {
+            delay(4000)
             _booking.value = bookingRepository.getBooking()
         }
     }
